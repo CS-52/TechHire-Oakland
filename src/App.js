@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import TestButton from './TestButton'
+import TestButton from './components/TestButton'
 
 class App extends Component {
   render() {
