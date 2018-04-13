@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Button from 'material-ui/Button';
+
 
 import SignIn from "./components/signin_button";
 
@@ -13,6 +15,9 @@ class App extends Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
           <SignIn />
+          <Button variant="raised" color="primary">
+      Hello World
+    </Button>
       </div>
     );
   }
