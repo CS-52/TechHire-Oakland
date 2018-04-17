@@ -16,7 +16,7 @@ const styles = {
   },
 };
 
-function CampCard(props) {
+function TrainingPartnerCard(props) {
   const { classes } = props;
   const partnerName = props.partnerName
   const imgPath = props.imgPath
@@ -43,8 +43,8 @@ function CampCard(props) {
   );
 }
 
-CampCard.propTypes = {
+TrainingPartnerCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(CampCard);
+export default withStyles(styles)(TrainingPartnerCard);
