@@ -18,17 +18,19 @@ const styles = {
 
 function CampCard(props) {
   const { classes } = props;
+  const partnerName = props.partnerName
+  const imgPath = props.imgPath
   return (
     <div>
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image='/images/test-image.png'
-          title="Training Camp"
+          image= {imgPath}
+          title="Training Partner"
         />
         <CardContent>
           <Typography gutterBottom variant="headline" component="h2">
-            Lizard
+            {partnerName}
           </Typography>
         </CardContent>
         <CardActions>

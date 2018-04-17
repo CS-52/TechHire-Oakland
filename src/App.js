@@ -14,7 +14,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <TrainingPartnerCard />
+        <TrainingPartnerCard partnerName='Techtonica' imgPath='/images/techtonica.png'/>
       </div>
     );
   }
