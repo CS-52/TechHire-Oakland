@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import CampButton from './components/pathway-visualization/training_partner_icon'
+import TrainingPartnerCard from './components/pathway-visualization/training_partner_icon'
 
 class App extends Component {
   render() {
@@ -14,7 +14,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <CampButton />
+        <TrainingPartnerCard />
       </div>
     );
   }
