@@ -1,0 +1,38 @@
+
+@font-face {
+  font-family: 'Muli-Regular';
+  src: local("Muli-Regular"), url(./fonts/Muli/Muli-Regular.ttf) format("opentype"); }
+
+.body_container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  background-color: red; }
+
+.App {
+  font-family: "Muli-Regular" , sans-serif;
+  text-align: center; }
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px; }
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white; }
+
+.App-title {
+  font-size: 1.5em; }
+
+.App-intro {
+  font-size: large; }
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); }
+  }
