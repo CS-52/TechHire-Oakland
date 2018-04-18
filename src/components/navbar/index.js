@@ -1,31 +1,20 @@
+import React , {Component} from 'react'
+import ReactDom from 'react-dom'
+import logo from './../../logo.svg';
+
 class Navbar extends Component{
 
   render(){
     return(
-      <header>
-      <div className="container">
-        <a href="#home" className="logo">Pathways</a>
-        <nav className="nav-collapse">
-          <ul>
-            <li className="menu-item active">
-              <a href="#home">Home</a>
-            </li>
-            <li className="menu-item">
-              <a href="#goals">Goals</a>
-            </li>
-            <li className="menu-item">
-              <a href="#pathways">Pathways</a>
-            </li>
-            <li className="menu-item">
-              <a href="#profile">Profile</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+      <navbar>
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1 className="App-title">Welcome to React</h1>
+      </navbar>
+
     )
 
 
   }
 
 }
+export default Navbar
