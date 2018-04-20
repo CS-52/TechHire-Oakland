@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
-import TrainingPartnerCard from './training_partner_card'
+import TrainingPartnerCluster from './training_partner_cluster'
 
 const styles = theme => ({
   root: {
@@ -17,7 +17,8 @@ const styles = theme => ({
   },
 });
 
-class TrainingPartnerCluster extends React.Component {
+
+class TrainingPartnerLayout extends React.Component {
 
   render() {
     const { classes } = this.props
@@ -26,12 +27,13 @@ class TrainingPartnerCluster extends React.Component {
     return (
       <Grid item xs={12}>
           <Grid container className={classes.demo}
-            justify="center"
-            direction="column"
+            justify="space-around"
+            direction="row"
+            alignItems="center"
             spacing={Number(spacing)}>
             {[0, 1, 2].map(value => (
               <Grid key={value} item>
-                <TrainingPartnerCard partnerName='Techtonica' imgPath='/images/techtonica.png' />
+                <TrainingPartnerCluster />
               </Grid>
             ))}
           </Grid>
@@ -41,4 +43,4 @@ class TrainingPartnerCluster extends React.Component {
 }
 
 
-export default withStyles(styles)(TrainingPartnerCluster);
+export default withStyles(styles)(TrainingPartnerLayout);
