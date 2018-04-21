@@ -1,0 +1,4 @@
+(a) On most days the business neither receives nor makes cash payments.
+(b) The customer has purchased only a few of the n products.
+(c) The portfolio invests (long or short) in only a small number of stocks.
+(d) On most days it didn’t rain
