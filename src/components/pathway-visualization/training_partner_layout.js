@@ -21,7 +21,7 @@ const styles = theme => ({
 class TrainingPartnerLayout extends React.Component {
 
   render() {
-    const { classes } = this.props
+    const { classes, pathway } = this.props
     const spacing = '16'
 
     return (
@@ -31,11 +31,15 @@ class TrainingPartnerLayout extends React.Component {
             direction="row"
             alignItems="center"
             spacing={Number(spacing)}>
-            {[0, 1, 2].map(value => (
-              <Grid key={value} item>
-                <TrainingPartnerCluster />
-              </Grid>
-            ))}
+            <Grid key={1} item>
+              <TrainingPartnerCluster schools={pathway.beginner}/>
+            </Grid>
+            <Grid key={2} item>
+              <TrainingPartnerCluster schools={pathway.intermediate}/>
+            </Grid>
+            <Grid key={3} item>
+              <TrainingPartnerCluster schools={pathway.advanced}/>
+            </Grid>
           </Grid>
         </Grid>
     );
