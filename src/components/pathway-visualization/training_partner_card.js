@@ -13,7 +13,7 @@ const styles = {
   media: {
     height: 200,
     width: 200
-  },
+  }
 };
 
 function TrainingPartnerCard(props) {
@@ -33,11 +33,6 @@ function TrainingPartnerCard(props) {
             {partnerName}
           </Typography>
         </CardContent>
-        <CardActions>
-          <Button size="small" color="primary">
-            Learn More
-          </Button>
-        </CardActions>
       </Card>
     </div>
   );
