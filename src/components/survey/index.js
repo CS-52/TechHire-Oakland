@@ -21,7 +21,7 @@ export default class Survey extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    //this.props.onSubmit(this.state)
+    this.props.onSubmit(this.state)
     this.props.onChange({
       name: '',
       age: '',

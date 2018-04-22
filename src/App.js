@@ -7,8 +7,11 @@ import Survey from './components/survey';
 class App extends Component {
 
   state = {
-    fields: {}
+    fields: {},
+    survey: "yes",
+    finishedSurvey: "no"
   };
+
 
   onChange = updatedValue => {
     this.setState({fields: {
@@ -17,11 +20,19 @@ class App extends Component {
     }
   });
   }
+
+  onSubmit = e => {
+    console.log(this.state);
+   this.setState({finishedSurvey: "yes"});
+
+  }
+
   render() {
     return (
       <div className="App">
-        <Survey onChange={fields => this.onChange(fields)}/>
+        <Survey onChange={fields => this.onChange(fields)} onSubmit={e => this.onSubmit(e)}/>
         <p>{JSON.stringify(this.state.fields, null, 2)}</p>
+        <p>{JSON.stringify(this.state.finishedSurvey, null, 2)}</p>
       </div>
     );
   }
