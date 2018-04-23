@@ -30,6 +30,27 @@ class App extends Component {
 
   }
 
+  renderSurvey() {
+    return (
+      <div className = "body_container">
+      <Survey onChange={fields => this.onChange(fields)} onSubmit={e => this.onSubmit(e)} />
+      </div>
+    );
+  }
+
+  //add when we need it:
+  //      <p>{JSON.stringify(this.state.fields, null, 2)}</p>
+        //<p>{JSON.stringify(this.state.finishedSurvey, null, 2)}</p>
+
+  renderPathways(pathway) {
+      return (
+        <div className = "body_container">
+        <TrainingPartnerLayout pathway={pathway} />
+        </div>
+      );
+
+  }
+
   render() {
 
     var json = {
@@ -98,22 +119,12 @@ class App extends Component {
       advanced: [json.schools[3], json.schools[2]]
     }
 
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
+        if(this.state.finishedSurvey == "no") {
+          return this.renderSurvey();
+        } else {
+          return this.renderPathways(pathway);
+        }
 
-        <div className = "body_container">
-          <p>This is a text</p>
-        </div>
-        <Survey onChange={fields => this.onChange(fields)} onSubmit={e => this.onSubmit(e)}/>
-        <p>{JSON.stringify(this.state.fields, null, 2)}</p>
-        <p>{JSON.stringify(this.state.finishedSurvey, null, 2)}</p>
-        <TrainingPartnerLayout pathway={pathway}/>
-      </div>
-    );
   }
 }
 
