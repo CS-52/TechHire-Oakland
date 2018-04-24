@@ -6,6 +6,7 @@ import Survey from './components/survey';
 import TrainingPartnerCard from './components/pathway-visualization/training_partner_card'
 import TrainingPartnerCluster from './components/pathway-visualization/training_partner_cluster'
 import TrainingPartnerLayout from './components/pathway-visualization/training_partner_layout'
+import Button from 'material-ui/Button';
 
 class App extends Component {
 
@@ -30,6 +31,12 @@ class App extends Component {
 
   }
 
+  onBack = e => {
+    console.log(this.state);
+   this.setState({finishedSurvey: "no"});
+
+  }
+
   renderSurvey() {
     return (
       <div className = "body_container">
@@ -45,6 +52,10 @@ class App extends Component {
   renderPathways(pathway) {
       return (
         <div className = "body_container">
+        <div>
+        <Button color="primary" variant="raised" className={this.props.button}  onClick={e => this.onBack(e)}>
+       Back
+     </Button> </div>
         <TrainingPartnerLayout pathway={pathway} />
         </div>
       );
