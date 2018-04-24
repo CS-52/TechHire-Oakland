@@ -1,6 +1,11 @@
 import React , {Component} from 'react'
 import ReactDom from 'react-dom'
-import logo from './../../logo.svg';
+import PropTypes from 'prop-types';
+import Button from 'material-ui/Button';
+import classNames from 'classnames';
+import { withStyles } from 'material-ui/styles';
+import Icon from 'material-ui/Icon';
+
 
 class Navbar extends Component{
   constructor (props){
@@ -14,9 +19,7 @@ class Navbar extends Component{
       <navbar>
         <ul>
           <li>
-            <a href = >
 
-            </a>
 
           </li>
 
