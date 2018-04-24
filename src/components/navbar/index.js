@@ -5,6 +5,9 @@ import Button from 'material-ui/Button';
 import classNames from 'classnames';
 import { withStyles } from 'material-ui/styles';
 import Icon from 'material-ui/Icon';
+import BackButton from './../BackButton'
+import './styles.css';
+
 
 
 class Navbar extends Component{
@@ -19,10 +22,11 @@ class Navbar extends Component{
       <navbar>
         <ul>
           <li>
-
-
+          <BackButton/>
           </li>
-
+          <li className="title">
+            Pathways
+          </li>
         </ul>
       </navbar>
 
