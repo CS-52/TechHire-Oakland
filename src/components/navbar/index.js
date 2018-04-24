@@ -3,12 +3,24 @@ import ReactDom from 'react-dom'
 import logo from './../../logo.svg';
 
 class Navbar extends Component{
+  constructor (props){
+    super(props)
+    this.state = {currentPage: this.props.page}
+
+  }
 
   render(){
     return(
       <navbar>
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">Welcome to React</h1>
+        <ul>
+          <li>
+            <a href = >
+
+            </a>
+
+          </li>
+
+        </ul>
       </navbar>
 
     )
