@@ -8,15 +8,16 @@ import TrainingPartnerCluster from './components/pathway-visualization/training_
 import TrainingPartnerLayout from './components/pathway-visualization/training_partner_layout'
 import Header from "./containers/Header"
 
-//dummy data that was previously a local variable
-import json from './dummyData.js'
+//dummy data that were previously local variables
+import schoolData from './schoolData.js'
+import pathway from "./pathwayData.js"
 
 class App extends Component {
 
   state = {
     fields: {},
     survey: "yes",
-    finishedSurvey: "no"
+    finishedSurvey: false
   };
 
 
@@ -30,12 +31,13 @@ class App extends Component {
 
   onSubmit = e => {
     console.log(this.state);
-   this.setState({finishedSurvey: "yes"});
+   this.setState({finishedSurvey: true});
 
   }
 
   renderSurvey() {
     return (
+
       <div className = "body_container">
       <Survey onChange={fields => this.onChange(fields)} onSubmit={e => this.onSubmit(e)} />
       </div>
@@ -58,17 +60,22 @@ class App extends Component {
   render() {
 
 
-    var pathway = {
-      beginner: [json.schools[0], json.schools[4]],
-      intermediate: [json.schools[1]],
-      advanced: [json.schools[3], json.schools[2]]
-    }
 
-        if(this.state.finishedSurvey == "no") {
-          return this.renderSurvey();
+        let body;
+        if(!this.state.finishedSurvey) {
+          body = this.renderSurvey();
         } else {
-          return this.renderPathways(pathway);
+          body = this.renderPathways(pathway);
         }
+        return(
+          <div className="App">
+            <Header/>
+            {body}
+
+          </div>
+
+        )
+
 
   }
 }
