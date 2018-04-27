@@ -4,7 +4,7 @@ var schoolData = {
         {
       key: 1,
       name: 'The Hidden Genius Project',
-          imgPath: '/images/hidden-genius-project.png',
+          imgPath: '/images/hidden_genius.png',
           info: {
             targetSkills: ['Mobile Development', 'SQL'],
         location: 'Berkeley',
@@ -15,7 +15,7 @@ var schoolData = {
         {
       key: 2,
           name: 'Techtonica',
-          imgPath: '/images/techtonica.png',
+          imgPath: '/images/techhire_training_partner_techtonica.png',
           info: {
             targetSkills: ['Web Development'],
         location: 'San Francisco',
@@ -26,7 +26,7 @@ var schoolData = {
         {
       key: 3,
           name: 'Rithm School',
-          imgPath: '/images/rithm-school.jpg',
+          imgPath: '/images/rithm_school.png',
           info: {
             targetSkills: ['Web Development', 'Ruby'],
         location: 'San Francisco',
@@ -48,7 +48,7 @@ var schoolData = {
     {
       key: 5,
           name: 'Merritt College',
-          imgPath: '/images/merritt-college.png',
+          imgPath: '/images/merritt_college.png',
           info: {
             targetSkills: ['Intro CS', 'Python'],
         location: 'Oakland',
