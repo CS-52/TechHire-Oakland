@@ -1,7 +1,7 @@
 import React , {Component} from 'react'
 import ReactDom from 'react-dom'
 
-import NavBar from './../../components/Navbar'
+import NavBar from './../../components/navbar'
 
 const Header =()=>{
   return(

@@ -6,7 +6,7 @@ import Survey from './components/survey';
 import TrainingPartnerCard from './components/pathway-visualization/training_partner_card'
 import TrainingPartnerCluster from './components/pathway-visualization/training_partner_cluster'
 import TrainingPartnerLayout from './components/pathway-visualization/training_partner_layout'
-import Header from "./containers/Header"
+import Header from "./containers/header"
 
 //dummy data that were previously local variables
 import schoolData from './schoolData.js'
