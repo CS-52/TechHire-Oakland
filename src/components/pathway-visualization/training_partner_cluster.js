@@ -30,7 +30,7 @@ class TrainingPartnerCluster extends React.Component {
             spacing={Number(spacing)}>
             {schools.map(school => (
               <Grid key={school.key} item>
-                <TrainingPartnerCard partnerName={school.name} imgPath={school.imgPath} />
+                <TrainingPartnerCard partner={school} />
               </Grid>
             ))}
           </Grid>
