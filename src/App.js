@@ -15,8 +15,7 @@ class App extends Component {
   state = {
     fields: {},
     survey: "yes",
-    finishedSurvey: false,
-    inDetail: false,
+    page: "survey",
     detailPartner: null
   };
 
@@ -31,12 +30,12 @@ class App extends Component {
 
   onSubmit = e => {
     console.log(this.state);
-   this.setState({finishedSurvey: true});
+   this.setState({page: "pathway"});
 
   }
 
   onPartnerSelect = (partner) => {
-    this.setState({inDetail: true, detailPartner: partner})
+    this.setState({page: "detail", detailPartner: partner})
   }
 
   renderSurvey() {
@@ -75,27 +74,20 @@ class App extends Component {
   }
 
   render() {
-
-
-
-        let body;
-        if (!this.state.finishedSurvey) {
-          body = this.renderSurvey();
-        } else if (!this.state.inDetail) {
-          body = this.renderPathways(pathway);
-        } else {
-          body = this.renderPartnerDetail(this.state.detailPartner)
-        }
-        return(
-          <div className="App">
-            <Header/>
-            {body}
-
-          </div>
-
-        )
-
-
+    let body;
+    if (this.state.page == "survey") {
+      body = this.renderSurvey();
+    } else if (this.state.page == "pathway") {
+      body = this.renderPathways(pathway);
+    } else if (this.state.page == "detail") {
+      body = this.renderPartnerDetail(this.state.detailPartner)
+    }
+    return(
+      <div className="App">
+        <Header />
+        {body}
+      </div>
+    )
   }
 }
 
