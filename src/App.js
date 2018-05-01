@@ -14,7 +14,6 @@ class App extends Component {
 
   state = {
     fields: {},
-    survey: "yes",
     page: "survey",
     detailPartner: null
   };
@@ -82,6 +81,7 @@ class App extends Component {
     } else if (this.state.page == "detail") {
       body = this.renderPartnerDetail(this.state.detailPartner)
     }
+
     return(
       <div className="App">
         <Header />
