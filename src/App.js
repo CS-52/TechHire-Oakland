@@ -15,7 +15,9 @@ class App extends Component {
   state = {
     fields: {},
     survey: "yes",
-    finishedSurvey: false
+    finishedSurvey: false,
+    inDetail: false,
+    detailPartner: null
   };
 
 
@@ -33,9 +35,12 @@ class App extends Component {
 
   }
 
+  onPartnerSelect = (partner) => {
+    this.setState({inDetail: true, detailPartner: partner})
+  }
+
   renderSurvey() {
     return (
-
       <div className = "body_container">
       <Survey onChange={fields => this.onChange(fields)} onSubmit={e => this.onSubmit(e)} />
       </div>
@@ -49,10 +54,24 @@ class App extends Component {
   renderPathways(pathway) {
       return (
         <div className = "body_container">
-        <TrainingPartnerLayout pathway={pathway} />
+        <TrainingPartnerLayout pathway={pathway} onPartnerSelect={this.onPartnerSelect}/>
         </div>
       );
 
+  }
+
+  renderPartnerDetail(partner) {
+    console.log(partner)
+    if (!partner) {
+      return <div>Loading partner</div>
+    }
+
+    return (
+      <div>
+        <p>This will be replaced with the detail component!</p>
+        {partner.name}, {partner.info.cost}
+      </div>
+    );
   }
 
   render() {
@@ -60,10 +79,12 @@ class App extends Component {
 
 
         let body;
-        if(!this.state.finishedSurvey) {
+        if (!this.state.finishedSurvey) {
           body = this.renderSurvey();
-        } else {
+        } else if (!this.state.inDetail) {
           body = this.renderPathways(pathway);
+        } else {
+          body = this.renderPartnerDetail(this.state.detailPartner)
         }
         return(
           <div className="App">

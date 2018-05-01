@@ -17,17 +17,17 @@ const styles = {
 };
 
 function TrainingPartnerCard(props) {
-  const { classes, partner } = props;
+  const { classes, partner, onSelect } = props;
   return (
     <div>
-      <Card className={classes.card}>
+      <Card className={classes.card} onClick={() => onSelect(partner)}>
         <CardMedia
           className={classes.media}
           image={partner.imgPath}
           title="Training Partner"
         />
         <CardContent>
-          <Typography gutterBottom variant="Title" align="left">
+          <Typography gutterBottom variant="title" align="left">
             {partner.name}
           </Typography>
           <Typography gutterBottom variant="body1" align="left">
