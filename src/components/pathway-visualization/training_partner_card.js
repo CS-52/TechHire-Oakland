@@ -8,7 +8,8 @@ const styles = {
   card: {
     maxWidth: 200,
     maxHeight: 320,
-    borderRadius: 5
+    borderRadius: 5,
+    cursor: 'pointer'
   },
   media: {
     height: 200,
