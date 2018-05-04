@@ -24,6 +24,7 @@ class TrainingPartnerLayout extends React.Component {
     const spacing = '16'
 
     return (
+      <body background='/images/arrow-background.svg'>
       <Grid item xs={12}>
           <Grid container className={classes.demo}
             justify="space-around"
@@ -41,6 +42,7 @@ class TrainingPartnerLayout extends React.Component {
             </Grid>
           </Grid>
         </Grid>
+        </body>
     );
   }
 }
