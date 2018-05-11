@@ -2,6 +2,7 @@ import React from 'react';
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import TrainingPartnerCluster from './training_partner_cluster'
+import './styles.css'
 
 const styles = theme => ({
   root: {
