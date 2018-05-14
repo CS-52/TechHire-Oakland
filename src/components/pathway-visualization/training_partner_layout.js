@@ -1,4 +1,5 @@
 import React from 'react';
+import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import TrainingPartnerCluster from './training_partner_cluster'
@@ -26,6 +27,9 @@ class TrainingPartnerLayout extends React.Component {
 
     return (
       <body background='/images/arrow-background.svg'>
+      <Typography variant="headline" gutterBottom>
+        Suggested Pathway
+      </Typography>
       <Grid item xs={12}>
           <Grid container className={classes.demo}
             justify="space-around"
