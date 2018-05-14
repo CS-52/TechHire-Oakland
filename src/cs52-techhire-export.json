@@ -1,0 +1,31 @@
+{
+  "pathways" : {
+    "pathway1" : {
+      "advanced " : {
+        "school3" : "name?"
+      },
+      "beginner" : {
+        "school1" : "name"
+      },
+      "intermediate" : {
+        "school2" : "name of school 2"
+      }
+    }
+  },
+  "schools" : {
+    "The Hidden Genius Project" : {
+      "contact" : "hidden-genius-contact-test@example.com",
+      "cost" : "$0.00",
+      "imgPath" : "/images/hidden_genius.png",
+      "location" : "Berkeley",
+      "website" : "hidden-genius-test.com"
+    },
+    "Techtonica" : {
+      "contact" : "techtonica-contact-test@example.com",
+      "cost" : "$14,000.00",
+      "imgPath" : "/images/techhire_training_partner_techtonica.png",
+      "location" : "San Francisco",
+      "website" : "techtonica-test.com"
+    }
+  }
+}
