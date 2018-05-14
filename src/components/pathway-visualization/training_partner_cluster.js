@@ -20,6 +20,7 @@ class TrainingPartnerCluster extends React.Component {
 
   render() {
     const { classes, schools, onPartnerSelect } = this.props
+    console.log(this.state);
     const spacing = '16'
 
     return (
@@ -29,7 +30,7 @@ class TrainingPartnerCluster extends React.Component {
             direction="column"
             spacing={Number(spacing)}>
             {schools.map(school => (
-              <Grid key={school.key} item>
+              <Grid key={school} item>
                 <TrainingPartnerCard partner={school} onSelect={onPartnerSelect}/>
               </Grid>
             ))}

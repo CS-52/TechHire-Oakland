@@ -1,8 +1,8 @@
-import schoolData from './schoolData'
+import schoolData from './newSchoolData'
 var pathway = {
-  beginner: [schoolData.schools[0], schoolData.schools[4]],
-  intermediate: [schoolData.schools[1]],
-  advanced: [schoolData.schools[3], schoolData.schools[2]]
+  beginner: ["The Hidden Genius Project", "Techtonica"],
+  intermediate: ["The Hidden Genius Project"],
+  advanced: ["Techtonica", "Techtonica"]
 }
 
 export default pathway;

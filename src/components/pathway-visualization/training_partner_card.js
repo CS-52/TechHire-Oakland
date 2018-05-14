@@ -4,6 +4,8 @@ import { withStyles } from 'material-ui/styles';
 import Card, { CardContent, CardMedia } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 
+import schoolData from '../../newSchoolData'
+
 const styles = {
   card: {
     maxWidth: 200,
@@ -24,15 +26,15 @@ function TrainingPartnerCard(props) {
       <Card className={classes.card} onClick={() => onSelect(partner)}>
         <CardMedia
           className={classes.media}
-          image={partner.imgPath}
+          image={schoolData.schools[partner].imgPath}
           title="Training Partner"
         />
         <CardContent>
           <Typography gutterBottom variant="title" align="left">
-            {partner.name}
+            {partner}
           </Typography>
           <Typography gutterBottom variant="body1" align="left">
-            {partner.info.cost}
+            {schoolData.schools[partner].cost}
           </Typography>
         </CardContent>
       </Card>

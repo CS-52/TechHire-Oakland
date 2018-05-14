@@ -5,19 +5,26 @@ import './App.css';
 import Survey from './components/survey';
 import TrainingPartnerLayout from './components/pathway-visualization/training_partner_layout'
 import Header from "./containers/header"
+import * as firebase from 'firebase';
+import FirebaseStuff from './components/FirebaseStuff'
 
 //dummy data that were previously local variables
-import schoolData from './schoolData.js'
+import schoolData from './newSchoolData.js'
 import pathway from "./pathwayData.js"
 
 class App extends Component {
 
-  state = {
-    fields: {},
-    page: "survey",
-    detailPartner: null
-  };
-
+  constructor() {
+    super();
+    this.state = {
+      speed: 10,
+      fields: {},
+      page: "survey",
+      detailPartner: null,
+      schools: {},
+      pathways:[]
+    };
+  }
 
   onChange = updatedValue => {
     this.setState({fields: {
@@ -34,6 +41,7 @@ class App extends Component {
   }
 
   onPartnerSelect = (partner) => {
+
     this.setState({page: "detail", detailPartner: partner})
   }
 
@@ -52,6 +60,7 @@ class App extends Component {
   renderPathways(pathway) {
       return (
         <div className = "body_container">
+        <FirebaseStuff />
         <TrainingPartnerLayout pathway={pathway} onPartnerSelect={this.onPartnerSelect}/>
         </div>
       );
@@ -67,7 +76,7 @@ class App extends Component {
     return (
       <div>
         <p>This will be replaced with the detail component!</p>
-        {partner.name}, {partner.info.cost}
+        {partner}, {schoolData.schools[partner].cost}
       </div>
     );
   }
