@@ -9,15 +9,16 @@ import Header from "./containers/header"
 //dummy data that were previously local variables
 import schoolData from './schoolData.js'
 import pathway from "./pathwayData.js"
+import WelcomePage from "./components/welcome"
 
 class App extends Component {
 
   state = {
     fields: {},
-    page: "survey",
+    page: "welcome",
     detailPartner: null
   };
-
+/* Need to figure out how to render welcome page and link that survey on start click in the welcome page*/
 
   onChange = updatedValue => {
     this.setState({fields: {
@@ -71,10 +72,18 @@ class App extends Component {
       </div>
     );
   }
+  renderWelcome(){
+    return(
+      <WelcomePage/>
+    )
+  }
 
   render() {
     let body;
-    if (this.state.page == "survey") {
+    if (this.state.page == "welcome") {
+      body = this.renderWelcome();
+    }
+    else if (this.state.page == "survey") {
       body = this.renderSurvey();
     } else if (this.state.page == "pathway") {
       body = this.renderPathways(pathway);
@@ -85,7 +94,11 @@ class App extends Component {
     return(
       <div className="App">
         <Header />
-        {body}
+        <div className = "body_container">
+          {body}
+        </div>
+
+
       </div>
     )
   }

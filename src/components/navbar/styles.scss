@@ -1,12 +1,23 @@
-ul {
-  list-style-type: none;
+@import "../../utilities/variables.scss";
+
+navbar {
+  //list-style-type: none;
   display: flex;
   flex-direction: row;
-
+  justify-content: center;
   align-items: center;
 }
-ul  .title{
+.headerTitle{
   text-align: center;
-  //background: red;
+  font-weight: 200;
+  font-size: 1.5rem;
+
+}
+#backButton{
+  position: absolute;
+  top:2vh;
+  left: 5vh;
+  z-index: 1;
+
 
 }

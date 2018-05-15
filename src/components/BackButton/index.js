@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { withStyles } from 'material-ui/styles';
 import ArrowBack from '@material-ui/icons/ArrowBack'
 import Icon from 'material-ui/Icon';
-
+import "./styles.css"
 
 const styles = theme => ({
   button: {
@@ -25,7 +25,7 @@ const styles = theme => ({
 function BackButton(props) {
   const { classes } = props;
   return (
-    <Button className={classes.button} variant="raised" color="primary">
+    <Button className={classes.button} id="backButton" >
       <ArrowBack className={classes.leftIcon}/>
       Back
     </Button>
