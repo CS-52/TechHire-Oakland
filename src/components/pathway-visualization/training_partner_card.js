@@ -6,14 +6,22 @@ import Typography from 'material-ui/Typography';
 
 const styles = {
   card: {
-    maxWidth: 200,
-    maxHeight: 320,
+    maxWidth: 150,
+    maxHeight: 240,
     borderRadius: 5,
     cursor: 'pointer'
   },
   media: {
-    height: 200,
-    width: 200
+    height: 150,
+    width: 150,
+    backgroundPosition: 'center center',
+    backgroundSize: 'contain'
+  },
+  content: {
+    paddingTop: 10,
+    //whiteSpace: 'nowrap',
+    //overflow: 'hidden',
+    //textOverflow: 'ellipsis'
   }
 };
 
@@ -27,12 +35,9 @@ function TrainingPartnerCard(props) {
           image={partner.imgPath}
           title="Training Partner"
         />
-        <CardContent>
-          <Typography gutterBottom variant="title" align="left">
+        <CardContent className={classes.content}>
+          <Typography gutterBottom variant="title" align="center">
             {partner.name}
-          </Typography>
-          <Typography gutterBottom variant="body1" align="left">
-            {partner.info.cost}
           </Typography>
         </CardContent>
       </Card>
