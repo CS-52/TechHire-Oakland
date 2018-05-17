@@ -3,6 +3,7 @@ import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import TrainingPartnerCluster from './training_partner_cluster'
+import Arrow from './arrow'
 import './styles.css'
 
 const styles = theme => ({
@@ -26,28 +27,26 @@ class TrainingPartnerLayout extends React.Component {
     const spacing = '16'
 
     return (
-      <body background='/images/arrow-background.svg'>
-      <Typography variant="headline" gutterBottom>
-        Suggested Pathway
-      </Typography>
-      <Grid item xs={12}>
-          <Grid container className={classes.demo}
-            justify="space-around"
-            direction="row"
-            alignItems="center"
-            spacing={Number(spacing)}>
-            <Grid key={1} item>
-              <TrainingPartnerCluster schools={pathway.beginner} onPartnerSelect={onPartnerSelect}/>
-            </Grid>
-            <Grid key={2} item>
-              <TrainingPartnerCluster schools={pathway.intermediate} onPartnerSelect={onPartnerSelect}/>
-            </Grid>
-            <Grid key={3} item>
-              <TrainingPartnerCluster schools={pathway.advanced} onPartnerSelect={onPartnerSelect}/>
+      <div>
+        <Arrow />
+        <Grid item xs={12}>
+            <Grid container className={classes.demo}
+              justify="space-around"
+              direction="row"
+              alignItems="center"
+              spacing={Number(spacing)}>
+              <Grid key={1} item>
+                <TrainingPartnerCluster schools={pathway.beginner} onPartnerSelect={onPartnerSelect}/>
+              </Grid>
+              <Grid key={2} item>
+                <TrainingPartnerCluster schools={pathway.intermediate} onPartnerSelect={onPartnerSelect}/>
+              </Grid>
+              <Grid key={3} item>
+                <TrainingPartnerCluster schools={pathway.advanced} onPartnerSelect={onPartnerSelect}/>
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
-        </body>
+        </div>
     );
   }
 }
