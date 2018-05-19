@@ -1,4 +1,4 @@
-import schoolData from './newSchoolData'
+//import schoolData from './newSchoolData'
 var pathway = {
   beginner: ["The Hidden Genius Project", "Techtonica"],
   intermediate: ["The Hidden Genius Project"],

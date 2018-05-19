@@ -6,11 +6,10 @@ import Survey from './components/survey';
 import TrainingPartnerLayout from './components/pathway-visualization/training_partner_layout'
 import Header from "./containers/header"
 import * as firebase from 'firebase';
-import FirebaseStuff from './components/FirebaseStuff'
 
 //dummy data that were previously local variables
-import schoolData from './newSchoolData.js'
-import pathway from "./pathwayData.js"
+//import schoolData from './newSchoolData.js'
+//import pathway from "./pathwayData.js"
 
 class App extends Component {
 
@@ -22,9 +21,47 @@ class App extends Component {
       page: "survey",
       detailPartner: null,
       schools: {},
-      pathways:[]
+      pathways:{}
     };
   }
+
+  componentDidMount() {
+    const schoolsRef = firebase.database().ref("schools");
+    const pathwaysRef = firebase.database().ref("pathways");
+
+    schoolsRef.on("value", snapshot => {
+      let items = snapshot.val();
+      //console.log(snapshot.val());
+      const schools = {};
+      for( let item in items) {
+        const school = {
+          contact : items[item].contact,
+          cost : items[item].cost,
+          imgPath: items[item].imgPath,
+          location: items[item].location,
+          website : items[item].website
+        };
+        schools[item] = school;
+      }
+      this.setState({ schools: schools});
+    });
+
+    pathwaysRef.on("value", snapshot => {
+      let items = snapshot.val();
+      //console.log(snapshot.val());
+      const pathways = {};
+      for( let item in items) {
+        const pathway = {
+          beginner: items[item].beginner,
+          intermediate: items[item].intermediate,
+          advanced: items[item].advanced
+        };
+        pathways[item] = pathway;
+      }
+      this.setState({ pathways: pathways});
+    });
+  }
+
 
   onChange = updatedValue => {
     this.setState({fields: {
@@ -57,11 +94,10 @@ class App extends Component {
   //      <p>{JSON.stringify(this.state.fields, null, 2)}</p>
         //<p>{JSON.stringify(this.state.finishedSurvey, null, 2)}</p>
 
-  renderPathways(pathway) {
+  renderPathways(pathway, schools) {
       return (
         <div className = "body_container">
-        <FirebaseStuff />
-        <TrainingPartnerLayout pathway={pathway} onPartnerSelect={this.onPartnerSelect}/>
+        <TrainingPartnerLayout pathway={pathway} schoolData={schools} onPartnerSelect={this.onPartnerSelect}/>
         </div>
       );
 
@@ -76,7 +112,7 @@ class App extends Component {
     return (
       <div>
         <p>This will be replaced with the detail component!</p>
-        {partner}, {schoolData.schools[partner].cost}
+        {partner}, {this.state.schools[partner].cost}
       </div>
     );
   }
@@ -86,10 +122,13 @@ class App extends Component {
     if (this.state.page == "survey") {
       body = this.renderSurvey();
     } else if (this.state.page == "pathway") {
-      body = this.renderPathways(pathway);
+      console.log(this.state.pathways[this.state.fields.interest]);
+      body = this.renderPathways(this.state.pathways[this.state.fields.interest], this.state.schools);
     } else if (this.state.page == "detail") {
       body = this.renderPartnerDetail(this.state.detailPartner)
     }
+
+    console.log(this.state);
 
     return(
       <div className="App">
