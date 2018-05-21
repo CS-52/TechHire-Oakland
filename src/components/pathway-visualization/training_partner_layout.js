@@ -28,22 +28,19 @@ class TrainingPartnerLayout extends React.Component {
 
     return (
       <div>
-        <Arrow />
-        <Grid item xs={12}>
-            <Grid container className={classes.demo}
-              justify="space-around"
-              direction="row"
-              alignItems="center"
-              spacing={Number(spacing)}>
-              <Grid key={1} item>
-                <TrainingPartnerCluster schools={pathway.beginner} onPartnerSelect={onPartnerSelect}/>
-              </Grid>
-              <Grid key={2} item>
-                <TrainingPartnerCluster schools={pathway.intermediate} onPartnerSelect={onPartnerSelect}/>
-              </Grid>
-              <Grid key={3} item>
-                <TrainingPartnerCluster schools={pathway.advanced} onPartnerSelect={onPartnerSelect}/>
-              </Grid>
+        <Grid container className={classes.demo}
+          justify="space-around"
+          direction="row"
+          alignItems="center"
+          spacing={Number(spacing)}>
+            <Grid item key={1}>
+              <TrainingPartnerCluster schools={pathway.beginner} onPartnerSelect={onPartnerSelect}/>
+            </Grid>
+            <Grid item key={2}>
+              <TrainingPartnerCluster schools={pathway.intermediate} onPartnerSelect={onPartnerSelect}/>
+            </Grid>
+            <Grid item key={3}>
+              <TrainingPartnerCluster schools={pathway.advanced} onPartnerSelect={onPartnerSelect}/>
             </Grid>
           </Grid>
         </div>
