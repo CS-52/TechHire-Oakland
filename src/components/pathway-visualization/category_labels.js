@@ -6,37 +6,35 @@ import Grid from 'material-ui/Grid';
 
 
 const styles = {
-  label: {
-    //padding: 24
-  },
-  arrowimg: {
-    height: 30,
-    width: 500,
-    objectFit: 'fill'
+  gridcont: {
+    paddingTop: "1.5em",
+    paddingBottom: "1.5em",
   }
 };
 
 
-function Arrow(props) {
+function CategoryLabels(props) {
   const {classes} = props;
 
   return (
-    <Grid container justify="center" direction="row" spacing={24}>
+    <Grid container justify="space-around" direction="row" alignItems="center" spacing={16} className={classes.gridcont}>
       <Grid item key={0}>
         <Typography className={classes.label} variant="headline" gutterBottom>
-          Exposure
+          Beginner
         </Typography>
       </Grid>
       <Grid item key={1}>
-        <img className={classes.arrowimg} src="/images/arrow-background.png" />
+        <Typography className={classes.label} variant="headline" gutterBottom>
+          Intermediate
+        </Typography>
       </Grid>
       <Grid item key={2}>
         <Typography className={classes.label} variant="headline" gutterBottom>
-          Employment
+          Advanced
         </Typography>
       </Grid>
     </Grid>
   );
 }
 
-export default withStyles(styles)(Arrow)
+export default withStyles(styles)(CategoryLabels)

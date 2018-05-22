@@ -3,22 +3,15 @@ import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import TrainingPartnerCluster from './training_partner_cluster'
-import Arrow from './arrow'
+import CategoryLabels from './category_labels'
 import './styles.css'
 
 const styles = theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    height: 140,
-    width: 100,
-  },
-  control: {
-    padding: theme.spacing.unit * 2,
-  },
   layoutdiv: {
     width: '100%',
+  },
+  toplabels: {
+    padding: '90px 90px 90px 90px'
   }
 });
 
@@ -31,7 +24,7 @@ class TrainingPartnerLayout extends React.Component {
 
     return (
       <div className={classes.layoutdiv}>
-        <Arrow />
+        <CategoryLabels className={classes.toplabels} />
         <Grid container className={classes.demo}
           justify="space-around"
           direction="row"
