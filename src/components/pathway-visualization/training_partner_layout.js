@@ -17,6 +17,9 @@ const styles = theme => ({
   control: {
     padding: theme.spacing.unit * 2,
   },
+  layoutdiv: {
+    width: '100%',
+  }
 });
 
 
@@ -27,7 +30,8 @@ class TrainingPartnerLayout extends React.Component {
     const spacing = '16'
 
     return (
-      <div>
+      <div className={classes.layoutdiv}>
+        <Arrow />
         <Grid container className={classes.demo}
           justify="space-around"
           direction="row"
