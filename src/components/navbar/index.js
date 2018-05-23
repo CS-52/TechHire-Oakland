@@ -5,7 +5,7 @@ import Button from 'material-ui/Button';
 import classNames from 'classnames';
 import { withStyles } from 'material-ui/styles';
 import Icon from 'material-ui/Icon';
-import BackButton from './../backButton'
+import BackButton from './../BackButton'
 import './styles.css';
 
 
