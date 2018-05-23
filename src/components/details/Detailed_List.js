@@ -17,26 +17,25 @@ const styles = theme => ({
 });
 
 function FolderList(props) {
-  const { classes } = props;
+  const { classes, schoolName, schoolData } = props;
+  console.log({schoolName});
+  console.log({schoolData});
+  const school = schoolData[schoolName];
   return (
     <div className={classes.root}>
-
       <List>
-        <img src="../images/rithm_school.png" width="100"/>
+        <img src={school.imgPath} width="100"/>
         <ListItem>
-          <ListItemText primary="Target Skills" secondary="Web Develpment, Ruby" />
+          <ListItemText primary="Location" secondary={school.location} />
         </ListItem>
         <ListItem>
-          <ListItemText primary="Experience Level" secondary="Intermediate" />
+          <ListItemText primary="Cost" secondary={school.cost} />
         </ListItem>
         <ListItem>
-          <ListItemText primary="Time" secondary="Full-time" />
+          <ListItemText primary="Website" secondary={school.website} />
         </ListItem>
         <ListItem>
-          <ListItemText primary="Website" secondary="rithm.com" />
-        </ListItem>
-        <ListItem>
-          <ListItemText primary="Contact" secondary="ryan@rithm.com" />
+          <ListItemText primary="Contact" secondary={school.contact} />
         </ListItem>
       </List>
     </div>

@@ -22,11 +22,6 @@ export default class Survey extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.props.onSubmit(this.state)
-    this.props.onChange({
-      name: '',
-      age: '',
-      interest: ''
-    });
     console.log(this.state);
     this.setState({
       name: '',
@@ -72,10 +67,10 @@ export default class Survey extends React.Component {
            onChange={e => this.change(e)}
          >
            <FormControlLabel value="Software Engineering" control={<Radio />} label="Software Engineering" />
-           <FormControlLabel value="IT/DevOps/Cybersecurity" control={<Radio />} label="IT/DevOps/Cybersecurity" />
-           <FormControlLabel value="User Interface/Experience" control={<Radio />} label="User Interface/Experience" />
+           <FormControlLabel value="IT, DevOps, Cybersecurity" control={<Radio />} label="IT/DevOps/Cybersecurity" />
+           <FormControlLabel value="User Interface and Experience" control={<Radio />} label="User Interface/Experience" />
            <FormControlLabel value="Hardware Engineering" control={<Radio />} label="Hardware Engineering" />
-           <FormControlLabel value="Sales/Marketing" control={<Radio />} label="Sales/Marketing" />
+           <FormControlLabel value="Sales and Marketing" control={<Radio />} label="Sales/Marketing" />
          </RadioGroup>
          </FormControl>
          <br />

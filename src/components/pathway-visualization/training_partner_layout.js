@@ -19,7 +19,7 @@ const styles = theme => ({
 class TrainingPartnerLayout extends React.Component {
 
   render() {
-    const { classes, pathway, onPartnerSelect } = this.props
+    const { classes, pathway, schoolData, onPartnerSelect } = this.props
     const spacing = '16'
 
     return (
@@ -31,13 +31,13 @@ class TrainingPartnerLayout extends React.Component {
           alignItems="center"
           spacing={Number(spacing)}>
             <Grid item key={1}>
-              <TrainingPartnerCluster schools={pathway.beginner} onPartnerSelect={onPartnerSelect}/>
+              <TrainingPartnerCluster schools={pathway.beginner} schoolData={schoolData} onPartnerSelect={onPartnerSelect}/>
             </Grid>
             <Grid item key={2}>
-              <TrainingPartnerCluster schools={pathway.intermediate} onPartnerSelect={onPartnerSelect}/>
+              <TrainingPartnerCluster schools={pathway.intermediate} schoolData={schoolData} onPartnerSelect={onPartnerSelect}/>
             </Grid>
             <Grid item key={3}>
-              <TrainingPartnerCluster schools={pathway.advanced} onPartnerSelect={onPartnerSelect}/>
+              <TrainingPartnerCluster schools={pathway.advanced} schoolData={schoolData} onPartnerSelect={onPartnerSelect}/>
             </Grid>
           </Grid>
         </div>

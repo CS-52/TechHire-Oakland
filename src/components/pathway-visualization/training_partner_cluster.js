@@ -10,7 +10,7 @@ const styles = theme => ({
 class TrainingPartnerCluster extends React.Component {
 
   render() {
-    const { classes, schools, onPartnerSelect } = this.props
+    const { classes, schools, schoolData, onPartnerSelect } = this.props
     const spacing = '24'
 
     return (
@@ -19,8 +19,8 @@ class TrainingPartnerCluster extends React.Component {
         direction="column"
         spacing={Number(spacing)}>
         {schools.map(school => (
-          <Grid key={school.key} item>
-            <TrainingPartnerCard partner={school} onSelect={onPartnerSelect}/>
+          <Grid key={school} item>
+            <TrainingPartnerCard partner={school} schoolData={schoolData} onSelect={onPartnerSelect}/>
           </Grid>
         ))}
       </Grid>

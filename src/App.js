@@ -5,22 +5,66 @@ import './App.css';
 import Survey from './components/survey';
 import TrainingPartnerLayout from './components/pathway-visualization/training_partner_layout'
 import Header from "./containers/header"
-import Details from './components/details/Detailed_List'
 
-//dummy data that were previously local variables
-import schoolData from './schoolData.js'
-import pathway from "./pathwayData.js"
+import Details from './components/details/Detailed_List'
 import WelcomePage from "./components/welcome"
 
+import * as firebase from 'firebase';
+
+//dummy data that were previously local variables
+//import schoolData from './newSchoolData.js'
+//import pathway from "./pathwayData.js"
 
 class App extends Component {
 
-  state = {
-    fields: {},
-    page: "survey",
-    detailPartner: null
-  };
-/* Need to figure out how to render welcome page and link that survey on start click in the welcome page*/
+  constructor() {
+    super();
+    this.state = {
+      speed: 10,
+      fields: {},
+      page: "survey",
+      detailPartner: null,
+      schools: {},
+      pathways:{}
+    };
+  }
+
+  componentDidMount() {
+    const schoolsRef = firebase.database().ref("schools");
+    const pathwaysRef = firebase.database().ref("pathways");
+
+    schoolsRef.on("value", snapshot => {
+      let items = snapshot.val();
+      //console.log(snapshot.val());
+      const schools = {};
+      for( let item in items) {
+        const school = {
+          contact : items[item].contact,
+          cost : items[item].cost,
+          imgPath: items[item].imgPath,
+          location: items[item].location,
+          website : items[item].website
+        };
+        schools[item] = school;
+      }
+      this.setState({ schools: schools});
+    });
+
+    pathwaysRef.on("value", snapshot => {
+      let items = snapshot.val();
+      //console.log(snapshot.val());
+      const pathways = {};
+      for( let item in items) {
+        const pathway = {
+          beginner: items[item].beginner,
+          intermediate: items[item].intermediate,
+          advanced: items[item].advanced
+        };
+        pathways[item] = pathway;
+      }
+      this.setState({ pathways: pathways});
+    });
+  }
 
   onChange = updatedValue => {
     this.setState({fields: {
@@ -37,6 +81,7 @@ class App extends Component {
   }
 
   onPartnerSelect = (partner) => {
+
     this.setState({page: "detail", detailPartner: partner})
   }
 
@@ -52,23 +97,22 @@ class App extends Component {
   //      <p>{JSON.stringify(this.state.fields, null, 2)}</p>
         //<p>{JSON.stringify(this.state.finishedSurvey, null, 2)}</p>
 
-  renderPathways(pathway) {
+  renderPathways(pathway, schools) {
       return (
         <div className = "body_container">
-        <TrainingPartnerLayout pathway={pathway} onPartnerSelect={this.onPartnerSelect}/>
+        <TrainingPartnerLayout pathway={pathway} schoolData={schools} onPartnerSelect={this.onPartnerSelect}/>
         </div>
       );
-
   }
 
-  renderPartnerDetail(partner) {
+  renderPartnerDetail(partner, schools) {
     console.log(partner)
     if (!partner) {
       return <div>Loading partner</div>
     }
 
     return (
-      <Details />
+      <Details schoolName={partner} schoolData={schools} />
     );
   }
   renderWelcome(){
@@ -85,10 +129,13 @@ class App extends Component {
     else if (this.state.page == "survey") {
       body = this.renderSurvey();
     } else if (this.state.page == "pathway") {
-      body = this.renderPathways(pathway);
+      console.log(this.state.pathways[this.state.fields.interest]);
+      body = this.renderPathways(this.state.pathways[this.state.fields.interest], this.state.schools);
     } else if (this.state.page == "detail") {
-      body = this.renderPartnerDetail(this.state.detailPartner)
+      body = this.renderPartnerDetail(this.state.detailPartner, this.state.schools)
     }
+
+    console.log(this.state);
 
     return(
       <div className="App">
