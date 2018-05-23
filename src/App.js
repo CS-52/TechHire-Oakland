@@ -5,10 +5,12 @@ import './App.css';
 import Survey from './components/survey';
 import TrainingPartnerLayout from './components/pathway-visualization/training_partner_layout'
 import Header from "./containers/header"
+import Details from './components/details/Detailed_List'
 
 //dummy data that were previously local variables
 import schoolData from './schoolData.js'
 import pathway from "./pathwayData.js"
+
 
 class App extends Component {
 
@@ -53,6 +55,7 @@ class App extends Component {
       return (
         <div className = "body_container">
         <TrainingPartnerLayout pathway={pathway} onPartnerSelect={this.onPartnerSelect}/>
+        <Details/>
         </div>
       );
 
