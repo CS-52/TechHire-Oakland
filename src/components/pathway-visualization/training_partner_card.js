@@ -13,7 +13,8 @@ const styles = {
   },
   media: {
     height: 200,
-    width: 200
+    width: 200,
+    backgroundSize: 'contain',
   }
 };
 

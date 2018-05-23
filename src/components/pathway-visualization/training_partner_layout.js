@@ -1,19 +1,18 @@
 import React from 'react';
+import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
 import TrainingPartnerCluster from './training_partner_cluster'
+import CategoryLabels from './category_labels'
+import './styles.css'
 
 const styles = theme => ({
-  root: {
-    flexGrow: 1,
+  layoutdiv: {
+    width: '100%',
   },
-  paper: {
-    height: 140,
-    width: 100,
-  },
-  control: {
-    padding: theme.spacing.unit * 2,
-  },
+  toplabels: {
+    padding: '90px 90px 90px 90px'
+  }
 });
 
 
@@ -24,25 +23,24 @@ class TrainingPartnerLayout extends React.Component {
     const spacing = '16'
 
     return (
-      <body background='/images/arrow-background.svg'>
-      <Grid item xs={12}>
-          <Grid container className={classes.demo}
-            justify="space-around"
-            direction="row"
-            alignItems="center"
-            spacing={Number(spacing)}>
-            <Grid key={1} item>
+      <div className={classes.layoutdiv}>
+        <CategoryLabels className={classes.toplabels} />
+        <Grid container className={classes.demo}
+          justify="space-around"
+          direction="row"
+          alignItems="center"
+          spacing={Number(spacing)}>
+            <Grid item key={1}>
               <TrainingPartnerCluster schools={pathway.beginner} onPartnerSelect={onPartnerSelect}/>
             </Grid>
-            <Grid key={2} item>
+            <Grid item key={2}>
               <TrainingPartnerCluster schools={pathway.intermediate} onPartnerSelect={onPartnerSelect}/>
             </Grid>
-            <Grid key={3} item>
+            <Grid item key={3}>
               <TrainingPartnerCluster schools={pathway.advanced} onPartnerSelect={onPartnerSelect}/>
             </Grid>
           </Grid>
-        </Grid>
-        </body>
+        </div>
     );
   }
 }
