@@ -17,7 +17,7 @@ class App extends Component {
 
   state = {
     fields: {},
-    page: "pathway",
+    page: "survey",
     detailPartner: null
   };
 /* Need to figure out how to render welcome page and link that survey on start click in the welcome page*/
