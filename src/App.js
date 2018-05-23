@@ -17,7 +17,7 @@ class App extends Component {
 
   state = {
     fields: {},
-    page: "detail",
+    page: "pathway",
     detailPartner: null
   };
 /* Need to figure out how to render welcome page and link that survey on start click in the welcome page*/
@@ -56,7 +56,6 @@ class App extends Component {
       return (
         <div className = "body_container">
         <TrainingPartnerLayout pathway={pathway} onPartnerSelect={this.onPartnerSelect}/>
-        <Details/>
         </div>
       );
 
@@ -69,10 +68,7 @@ class App extends Component {
     }
 
     return (
-      <div>
-        <p>This will be replaced with the detail component!</p>
-        {partner.name}, {partner.info.cost}
-      </div>
+      <Details />
     );
   }
   renderWelcome(){

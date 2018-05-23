@@ -22,7 +22,7 @@ function FolderList(props) {
     <div className={classes.root}>
 
       <List>
-        <img src="../images/rithm-school.jpg" width="100"/>
+        <img src="../images/rithm_school.png" width="100"/>
         <ListItem>
           <ListItemText primary="Target Skills" secondary="Web Develpment, Ruby" />
         </ListItem>
