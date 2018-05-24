@@ -12,13 +12,20 @@ class WelcomePage extends Component{
 
     super(props)
   }
+
+  onStart = (e) => {
+    e.preventDefault();
+    this.props.onStart(this.state)
+    console.log(this.state);
+  }
+
   render(){
     return(
 
       <div>
         <div><h1 className="heading">Welcome to Pathways</h1></div>
         <div><h4 className="subHeading">We are geared towards helping people find their way into the tech industry by building out custom pathways that you can follow</h4></div>
-        <button className= "startBtn">Start</button>
+        <Button color="primary" variant="raised" className={this.props.button}  onClick={e => this.onStart(e)}>Start</Button>
 
       </div>
 

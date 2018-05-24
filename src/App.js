@@ -22,7 +22,7 @@ class App extends Component {
     this.state = {
       speed: 10,
       fields: {},
-      page: "survey",
+      page: "welcome",
       detailPartner: null,
       schools: {},
       pathways:{}
@@ -80,6 +80,10 @@ class App extends Component {
 
   }
 
+  onStart = e => {
+    this.setState({page: "survey"});
+  }
+
   onPartnerSelect = (partner) => {
 
     this.setState({page: "detail", detailPartner: partner})
@@ -117,7 +121,7 @@ class App extends Component {
   }
   renderWelcome(){
     return(
-      <WelcomePage/>
+      <WelcomePage onStart={e => this.onStart(e)} />
     )
   }
 
