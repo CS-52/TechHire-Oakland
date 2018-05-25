@@ -14,15 +14,13 @@ class Navbar extends Component{
   constructor (props){
     super(props)
     this.state = {currentPage: this.props.page}
-
   }
 
   render(){
     return(
-
       <navbar>
         <div> <h1 className="headerTitle">Pathways</h1></div>
-        <div id = "backButton">
+        <div id = "backButton" onClick={e => this.props.onBack(e)}>
           <BackButton/>
         </div>
       </navbar>

@@ -35,7 +35,6 @@ class App extends Component {
 
     schoolsRef.on("value", snapshot => {
       let items = snapshot.val();
-      //console.log(snapshot.val());
       const schools = {};
       for( let item in items) {
         const school = {
@@ -52,7 +51,6 @@ class App extends Component {
 
     pathwaysRef.on("value", snapshot => {
       let items = snapshot.val();
-      //console.log(snapshot.val());
       const pathways = {};
       for( let item in items) {
         const pathway = {
@@ -75,9 +73,7 @@ class App extends Component {
   }
 
   onSubmit = e => {
-    console.log(this.state);
-   this.setState({page: "pathway"});
-
+    this.setState({page: "pathway"});
   }
 
   onStart = e => {
@@ -85,8 +81,17 @@ class App extends Component {
   }
 
   onPartnerSelect = (partner) => {
-
     this.setState({page: "detail", detailPartner: partner})
+  }
+
+  onBack = e => {
+    const predecessors = {
+      "welcome": "welcome",
+      "survey": "welcome",
+      "pathway": "survey",
+      "detail": "pathway"
+    }
+    this.setState({ page: predecessors[this.state.page] })
   }
 
   renderSurvey() {
@@ -110,7 +115,6 @@ class App extends Component {
   }
 
   renderPartnerDetail(partner, schools) {
-    console.log(partner)
     if (!partner) {
       return <div>Loading partner</div>
     }
@@ -119,7 +123,8 @@ class App extends Component {
       <Details schoolName={partner} schoolData={schools} />
     );
   }
-  renderWelcome(){
+
+  renderWelcome() {
     return(
       <WelcomePage onStart={e => this.onStart(e)} />
     )
@@ -129,26 +134,20 @@ class App extends Component {
     let body;
     if (this.state.page == "welcome") {
       body = this.renderWelcome();
-    }
-    else if (this.state.page == "survey") {
+    } else if (this.state.page == "survey") {
       body = this.renderSurvey();
     } else if (this.state.page == "pathway") {
-      console.log(this.state.pathways[this.state.fields.interest]);
       body = this.renderPathways(this.state.pathways[this.state.fields.interest], this.state.schools);
     } else if (this.state.page == "detail") {
       body = this.renderPartnerDetail(this.state.detailPartner, this.state.schools)
     }
 
-    console.log(this.state);
-
     return(
       <div className="App">
-        <Header />
+        <Header onBack={this.onBack}/>
         <div className = "body_container">
           {body}
         </div>
-
-
       </div>
     )
   }
