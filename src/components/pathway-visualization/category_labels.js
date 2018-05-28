@@ -17,7 +17,7 @@ function CategoryLabels(props) {
   const {classes} = props;
 
   return (
-    <Grid container justify="space-around" direction="row" alignItems="center" spacing={16} className={classes.gridcont}>
+    <Grid container justify="space-between" direction="row" alignItems="flex-start" spacing={16} className={classes.gridcont}>
       <Grid item key={0}>
         <Typography className={classes.label} variant="headline" gutterBottom>
           Beginner

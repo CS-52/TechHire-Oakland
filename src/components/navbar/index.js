@@ -16,7 +16,9 @@ class Navbar extends Component{
     this.state = {currentPage: this.props.page}
   }
 
+
   render(){
+
     return(
       <navbar>
         <div> <h1 className="headerTitle">Pathways</h1></div>

@@ -36,7 +36,7 @@ export default class Survey extends React.Component {
           required
           name = "name"
           id="required"
-          label="What is your name?"
+          label="First name?"
           defaultValue=""
           value = {this.state.name}
           onChange={e => this.change(e)}
@@ -48,7 +48,7 @@ export default class Survey extends React.Component {
           required
           name = "age"
           id="required"
-          label="How old are you?"
+          label="Last name?"
           defaultValue=""
           value={this.state.age}
           onChange={e => this.change(e)}

@@ -25,7 +25,7 @@ class WelcomePage extends Component{
       <div>
         <div><h1 className="heading">Welcome to Pathways</h1></div>
         <div><h4 className="subHeading">We are geared towards helping people find their way into the tech industry by building out custom pathways that you can follow</h4></div>
-        <Button color="primary" variant="raised" className={this.props.button}  onClick={e => this.onStart(e)}>Start</Button>
+        <Button color="primary" variant="raised" className={this.props.button}  onClick={e => this.onStart(e)}>Find your pathway</Button>
 
       </div>
 

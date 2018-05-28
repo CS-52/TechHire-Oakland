@@ -144,7 +144,8 @@ class App extends Component {
 
     return(
       <div className="App">
-        <Header onBack={this.onBack}/>
+        <Header onBack={this.onBack} page={this.state.page} name={this.state.fields["name"]} />
+        <br />
         <div className = "body_container">
           {body}
         </div>
