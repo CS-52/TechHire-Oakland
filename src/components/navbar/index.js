@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import { withStyles } from 'material-ui/styles';
 import Icon from 'material-ui/Icon';
 import BackButton from './../BackButton'
+import TechHireLogo from './techhire-logo'
 import './styles.css';
 
 
@@ -24,6 +25,9 @@ class Navbar extends Component{
         <div> <h1 className="headerTitle">Pathways</h1></div>
         <div id = "backButton" onClick={e => this.props.onBack(e)}>
           <BackButton/>
+        </div>
+        <div id = "navbarLogo">
+          <TechHireLogo />
         </div>
       </navbar>
 
