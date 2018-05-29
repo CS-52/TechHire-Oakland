@@ -11,7 +11,8 @@ const styles = {
     maxWidth: 200,
     maxHeight: 320,
     borderRadius: 5,
-    cursor: 'pointer'
+    cursor: 'pointer',
+    margin: '0 auto'
   },
   media: {
     height: 200,
