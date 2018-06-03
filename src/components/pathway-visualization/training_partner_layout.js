@@ -32,35 +32,26 @@ class TrainingPartnerLayout extends React.Component {
           alignItems="flex-start"
           spacing={Number(spacing)}>
             <Grid item key={1}>
-            <Typography className={classes.label} variant="headline" gutterBottom>
-              Beginner
-            </Typography>
-            <Typography className={classes.label} variant="caption" gutterBottom>
+            <h2 className="heading">Beginner</h2>
+            <h5 className="subHeading">
               Start your coding journey here, <br /> with classes geared toward beginning coders
-            </Typography>
-            <br />
+            </h5>
               <TrainingPartnerCluster schools={pathway.beginner} schoolData={schoolData} onPartnerSelect={onPartnerSelect}/>
             </Grid>
-            <img src="/images/arrow2.png" width="100" height="50" />
+            <img src="/images/arrow2.png" width="100" height="50" vspace="40" />
             <Grid item key={2}>
-            <Typography className={classes.label} variant="headline" gutterBottom>
-              Intermediate
-            </Typography>
-            <Typography className={classes.label} variant="caption" gutterBottom>
+            <h2 className="heading">Intermediate</h2>
+            <h5 className="subHeading">
               These classes assume that you already <br /> have some experience coding
-            </Typography>
-            <br />
+            </h5>
               <TrainingPartnerCluster schools={pathway.intermediate} schoolData={schoolData} onPartnerSelect={onPartnerSelect}/>
             </Grid>
-            <img src="/images/arrow2.png" width="100" height="50" />
+            <img src="/images/arrow2.png" width="100" height="50" vspace="40" />
             <Grid item key={3}>
-            <Typography className={classes.label} variant="headline" gutterBottom>
-              Advanced
-            </Typography>
-            <Typography className={classes.label} variant="caption" gutterBottom>
+            <h2 className="heading">Advanced</h2>
+            <h5 className="subHeading">
               Up for a challenge? These more advanced classes <br /> offer ways for the experienced coder <br /> to hone their skills.
-            </Typography>
-            <br />
+            </h5>
               <TrainingPartnerCluster schools={pathway.advanced} schoolData={schoolData} onPartnerSelect={onPartnerSelect}/>
             </Grid>
           </Grid>

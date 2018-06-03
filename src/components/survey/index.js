@@ -6,13 +6,11 @@ import { FormLabel, FormControl, FormControlLabel, FormHelperText } from 'materi
 
 
 export default class Survey extends React.Component {
-  state = {
-    name: '',
-    age: '',
-    interest: ''
-  }
+
+  state = this.props.prev
 
   change = (e) => {
+    console.log(this.props)
     this.props.onChange({[e.target.name]: e.target.value});
     this.setState({
       [e.target.name]: e.target.value
@@ -22,20 +20,14 @@ export default class Survey extends React.Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.props.onSubmit(this.state)
-    console.log(this.state);
-    this.setState({
-      name: '',
-      age: '',
-      interest: ''
-    });
   }
   render() {
+    console.log(this.props)
     return (
       <form>
         <TextField
-          required
           name = "name"
-          id="required"
+          id="name"
           label="First name?"
           defaultValue=""
           value = {this.state.name}
@@ -43,18 +35,6 @@ export default class Survey extends React.Component {
           className={this.props.textField}
           margin="normal"
         />
-        <br />
-        <TextField
-          required
-          name = "age"
-          id="required"
-          label="Last name?"
-          defaultValue=""
-          value={this.state.age}
-          onChange={e => this.change(e)}
-          className={this.props.textField}
-          margin = "normal"
-         />
          <br />
          <br />
          <FormControl component="fieldset" required className={this.props.formControl}>

@@ -4,11 +4,29 @@ import NavBar from './../../components/navbar'
 import './styles.css';
 
 const Header = (props) => {
-  const { onBack, page, name} = props;
+  const { onBack, page, interest, name} = props;
+  const interestTerms = {
+    "Software Engineering": "software engineering",
+    "IT, DevOps, Cybersecurity": "IT, DevOps, and cybersecurity",
+    "User Interface and Experience": "user interface and experience",
+    "Hardware Engineering": "hardware engineering",
+    "Sales and Marketing": "sales and marketing"
+  }
+
+
+
+  function makeNameText(name) {
+    if(name == undefined) {
+      return "";
+    } else {
+      return ", "+ name;
+    }
+  }
+
   const messages = {
     "welcome": "",
     "survey": "Let's get to know you! Fill out the questions below so that we can generate your personalized pathway.",
-    "pathway": "Welcome to your personalized learning pathway, " + props.name + "! Click any school to learn more.",
+    "pathway": "Welcome to your personalized learning pathway" + makeNameText(props.name) +"! We've selected a variety of schools based on your interest in " + interestTerms[props.interest] + ". Click any school to learn more.",
     "detail": "More questions? Contact the Techhire team at example@place.com"
   }
 

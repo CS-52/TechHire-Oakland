@@ -21,7 +21,7 @@ class App extends Component {
     super();
     this.state = {
       speed: 10,
-      fields: {},
+      fields: {interest: "Software Engineering"},
       page: "welcome",
       detailPartner: null,
       schools: {},
@@ -95,9 +95,10 @@ class App extends Component {
   }
 
   renderSurvey() {
+    console.log(this.state)
     return (
       <div className = "body_container">
-      <Survey onChange={fields => this.onChange(fields)} onSubmit={e => this.onSubmit(e)} />
+      <Survey onChange={fields => this.onChange(fields)} onSubmit={e => this.onSubmit(e)} prev={this.state.fields}/>
       </div>
     );
   }
@@ -144,7 +145,7 @@ class App extends Component {
 
     return(
       <div className="App">
-        <Header onBack={this.onBack} page={this.state.page} name={this.state.fields["name"]} />
+        <Header onBack={this.onBack} page={this.state.page} interest={this.state.fields["interest"]} name={this.state.fields["name"]} />
         <br />
         <div className = "body_container">
           {body}
