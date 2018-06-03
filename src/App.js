@@ -38,6 +38,7 @@ class App extends Component {
       const schools = {};
       for( let item in items) {
         const school = {
+          summary: items[item].summary,
           contact : items[item].contact,
           cost : items[item].cost,
           imgPath: items[item].imgPath,

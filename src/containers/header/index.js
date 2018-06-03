@@ -27,7 +27,7 @@ const Header = (props) => {
     "welcome": "",
     "survey": "Let's get to know you! Fill out the questions below so that we can generate your personalized pathway.",
     "pathway": "Welcome to your personalized learning pathway" + makeNameText(props.name) +"! We've selected a variety of schools based on your interest in " + interestTerms[props.interest] + ". Click any school to learn more.",
-    "detail": "More questions? Contact the Techhire team at example@place.com"
+    "detail": "More questions? Contact the Techhire team at hello@techhireoakland.org"
   }
 
   console.log({props});

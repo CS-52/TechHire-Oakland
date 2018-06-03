@@ -11,20 +11,21 @@ import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 const styles = theme => ({
   root: {
     width: '100%',
-    maxWidth: 360,
+    maxWidth: 500,
     backgroundColor: theme.palette.background.paper,
   },
 });
 
 function FolderList(props) {
   const { classes, schoolName, schoolData } = props;
-  console.log({schoolName});
-  console.log({schoolData});
   const school = schoolData[schoolName];
   return (
     <div className={classes.root}>
       <List>
-        <img src={school.imgPath} width="100"/>
+        <img src={school.imgPath} width="200"/>
+        <ListItem>
+          <ListItemText primary="Summary" secondary={school.summary} />
+        </ListItem>
         <ListItem>
           <ListItemText primary="Location" secondary={school.location} />
         </ListItem>
